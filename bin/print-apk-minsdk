@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PATH="${DIR}/../tools:${PATH}"
+
+if [ -z "$1" ]; then
+  echo 'error: path to APK file is a required parameter'
+  echo 'usage: print-apk-minsdk "/path/to/file.apk"'
+  exit 1
+fi
+
+apk_path=$(realpath "$1")
+
+if [ ! -f "$apk_path" ]; then
+  echo 'error: path to APK file does not exist'
+  echo 'usage: print-apk-minsdk "/path/to/file.apk"'
+  exit 1
+fi
+
+# =====================================================
+# https://stackoverflow.com/questions/20372193
+# =====================================================
+
+# =====================================================
+# https://stackoverflow.com/a/31693172
+# aapt list -a "$apk_path"
+# =====================================================
+# notes:
+# - for an arbitrary test.apk
+#   * 3391 lines of output
+#   * minSdkVersion and targetSdkVersion are in hex
+#       A: android:minSdkVersion(0x0101020c)=(type 0x10)0xf
+#       A: android:targetSdkVersion(0x01010270)=(type 0x10)0x12
+#   * minSdkVersion:
+#       0xf  == 15
+#   * targetSdkVersion:
+#       0x12 == 18
+# =====================================================
+
+# =====================================================
+# https://stackoverflow.com/a/46655143
+# aapt dump badging "$apk_path"
+# =====================================================
+# notes:
+# - for an arbitrary test.apk
+#   * 89 lines of output
+#   * minSdkVersion and targetSdkVersion are in decimal
+#     - sdkVersion:'15'
+#     - targetSdkVersion:'18'
+# =====================================================
+
+aapt dump badging "$apk_path" | grep sdkVersion | grep -oP '\d+'

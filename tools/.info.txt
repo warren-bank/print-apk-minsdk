@@ -1,0 +1,23 @@
+aapt:
+=====
+https://android.googlesource.com/platform/prebuilts/sdk/+/platform-tools-29.0.3/tools/windows/bin/aapt.exe
+https://android.googlesource.com/platform/prebuilts/sdk/+/platform-tools-29.0.3/tools/windows/bin/aapt.exe?format=TEXT
+
+grep:
+=====
+http://gnuwin32.sourceforge.net/packages/grep.htm
+http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
+http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
+
+--------------------------------------------------------------------------------
+
+https://github.com/google/gitiles/issues/7
+
+Q: how to download a binary file from a git repo in googlesource?
+A: Base64-encoded raw file support is (recently) available.
+   Add querystring to URL:
+       ?format=TEXT
+   To decode:
+       cat aapt.txt | base64 -d > aapt.exe
+
+--------------------------------------------------------------------------------
