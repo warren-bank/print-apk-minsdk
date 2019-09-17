@@ -12,9 +12,12 @@ print-apk-minsdk "/path/to/file.apk"
 
 #### 3rd-Party Dependencies:
 
-* Win32 binaries included in [tools](https://github.com/warren-bank/print-apk-minsdk/tree/master/tools)
+* binaries included in [tools](https://github.com/warren-bank/print-apk-minsdk/tree/master/tools)
   * [aapt](https://elinux.org/Android_aapt)
+    * Win32
+    * Linux
   * [grep](https://ss64.com/bash/grep.html)
+    * Win32
 
 #### Legal:
 

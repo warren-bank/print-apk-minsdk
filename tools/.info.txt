@@ -1,10 +1,15 @@
-aapt:
-=====
+aapt (Linux):
+=============
+https://android.googlesource.com/platform/prebuilts/sdk/+/platform-tools-29.0.3/tools/linux/bin/aapt
+https://android.googlesource.com/platform/prebuilts/sdk/+/platform-tools-29.0.3/tools/linux/bin/aapt?format=TEXT
+
+aapt (Win32):
+=============
 https://android.googlesource.com/platform/prebuilts/sdk/+/platform-tools-29.0.3/tools/windows/bin/aapt.exe
 https://android.googlesource.com/platform/prebuilts/sdk/+/platform-tools-29.0.3/tools/windows/bin/aapt.exe?format=TEXT
 
-grep:
-=====
+grep (Win32):
+=============
 http://gnuwin32.sourceforge.net/packages/grep.htm
 http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
 http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
