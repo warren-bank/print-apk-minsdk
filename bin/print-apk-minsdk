@@ -18,6 +18,18 @@ if [ ! -f "$apk_path" ]; then
 fi
 
 # =====================================================
+# https://stackoverflow.com/a/3466183
+# =====================================================
+
+case "$(uname -s)" in
+  CYGWIN*)    aapt='aapt.exe';;
+  MINGW*)     aapt='aapt.exe';;
+  Linux*)     aapt='aapt';;
+  Darwin*)    aapt='aapt';;
+  *)          aapt='aapt';;
+esac
+
+# =====================================================
 # https://stackoverflow.com/questions/20372193
 # =====================================================
 
@@ -49,4 +61,4 @@ fi
 #     - targetSdkVersion:'18'
 # =====================================================
 
-aapt dump badging "$apk_path" | grep sdkVersion | grep -oP '\d+'
+"$aapt" dump badging "$apk_path" | grep sdkVersion | grep -oP '\d+'

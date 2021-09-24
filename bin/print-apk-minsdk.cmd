@@ -5,7 +5,7 @@ set PATH=%~dp0..\tools;%PATH%
 if [%1]==[] (
   echo error: path to APK file is a required parameter
   echo usage: print-apk-minsdk "/path/to/file.apk"
-  exit 0
+  exit /b 0
 )
 
 set apk_path="%~1"
@@ -13,7 +13,7 @@ set apk_path="%~1"
 if not exist %apk_path% (
   echo error: path to APK file does not exist
   echo usage: print-apk-minsdk "/path/to/file.apk"
-  exit 0
+  exit /b 0
 )
 
 rem :: =====================================================

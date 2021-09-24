@@ -6,4 +6,17 @@ PATH="${DIR}/../../bin:${PATH}"
 APK="${DIR}/test.apk"
 LOG="${DIR}/test.log"
 
-print-apk-minsdk "$APK" >"$LOG" 2>&1
+if [ -f "$LOG" ];then
+  rm -rf "$LOG"
+fi
+
+echo 'package:' >>"$LOG"
+print-apk-package "$APK" >>"$LOG" 2>&1
+echo '' >>"$LOG"
+
+echo 'minsdk:' >>"$LOG"
+print-apk-minsdk "$APK" >>"$LOG" 2>&1
+echo '' >>"$LOG"
+
+echo 'permissions:' >>"$LOG"
+print-apk-permissions "$APK" >>"$LOG" 2>&1

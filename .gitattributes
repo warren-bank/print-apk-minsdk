@@ -4,3 +4,11 @@
 *.bat text eol=crlf
 
 *.sh  text eol=lf
+
+bin/print-apk-minsdk          text eol=lf
+bin/print-apk-package         text eol=lf
+bin/print-apk-permissions     text eol=lf
+
+bin/print-apk-minsdk.cmd      text eol=crlf
+bin/print-apk-package.cmd     text eol=crlf
+bin/print-apk-permissions.cmd text eol=crlf

@@ -2,12 +2,14 @@
 
 #### Summary:
 
-Command-line shell script to print the "minSdkVersion" of an Android APK (Application Package Kit) file.
+A set of command-line shell scripts to print specific details about an Android APK (Application Package Kit) file.
 
 #### Usage:
 
 ```bash
-print-apk-minsdk "/path/to/file.apk"
+print-apk-minsdk      "/path/to/file.apk"
+print-apk-package     "/path/to/file.apk"
+print-apk-permissions "/path/to/file.apk"
 ```
 
 #### 3rd-Party Dependencies:

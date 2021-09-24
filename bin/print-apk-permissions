@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PATH="${DIR}/../tools:${PATH}"
+
+if [ -z "$1" ]; then
+  echo 'error: path to APK file is a required parameter'
+  echo 'usage: print-apk-permissions "/path/to/file.apk"'
+  exit 1
+fi
+
+apk_path=$(realpath "$1")
+
+if [ ! -f "$apk_path" ]; then
+  echo 'error: path to APK file does not exist'
+  echo 'usage: print-apk-permissions "/path/to/file.apk"'
+  exit 1
+fi
+
+# =====================================================
+# https://stackoverflow.com/a/3466183
+# =====================================================
+
+case "$(uname -s)" in
+  CYGWIN*)    aapt='aapt.exe';;
+  MINGW*)     aapt='aapt.exe';;
+  Linux*)     aapt='aapt';;
+  Darwin*)    aapt='aapt';;
+  *)          aapt='aapt';;
+esac
+
+# =====================================================
+# https://android.stackexchange.com/a/9779
+# aapt dump permissions "$apk_path"
+# =====================================================
+
+"$aapt" dump permissions "$apk_path" | grep -P "uses-permission:" | grep -oP "name='[^']+'" | grep -oP "[^']{6,}"
