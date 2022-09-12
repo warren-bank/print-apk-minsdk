@@ -9,6 +9,7 @@ A set of command-line shell scripts to print specific details about an Android A
 ```bash
 print-apk-minsdk      "/path/to/file.apk"
 print-apk-package     "/path/to/file.apk"
+print-apk-version     "/path/to/file.apk"
 print-apk-permissions "/path/to/file.apk"
 ```
 

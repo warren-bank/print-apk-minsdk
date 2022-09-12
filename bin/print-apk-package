@@ -34,4 +34,4 @@ esac
 # aapt dump badging "$apk_path"
 # =====================================================
 
-"$aapt" dump badging "$apk_path" | grep "package:" | grep -oP "name='[^']+'" | grep -oP "[^']{6,}"
+"$aapt" dump badging "$apk_path" | grep "package:" | grep -oP "name='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^']{2,}"

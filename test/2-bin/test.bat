@@ -11,6 +11,10 @@ echo package:>>%log%
 call print-apk-package %apk% >>%log% 2>&1
 echo.>>%log%
 
+echo version:>>%log%
+call print-apk-version %apk% >>%log% 2>&1
+echo.>>%log%
+
 echo minsdk:>>%log%
 call print-apk-minsdk %apk% >>%log% 2>&1
 echo.>>%log%

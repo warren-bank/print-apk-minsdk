@@ -14,6 +14,10 @@ echo 'package:' >>"$LOG"
 print-apk-package "$APK" >>"$LOG" 2>&1
 echo '' >>"$LOG"
 
+echo 'version:' >>"$LOG"
+print-apk-version "$APK" >>"$LOG" 2>&1
+echo '' >>"$LOG"
+
 echo 'minsdk:' >>"$LOG"
 print-apk-minsdk "$APK" >>"$LOG" 2>&1
 echo '' >>"$LOG"

@@ -21,4 +21,4 @@ rem :: https://android.stackexchange.com/a/9779
 rem :: aapt dump permissions %apk_path%
 rem :: =====================================================
 
-aapt dump permissions %apk_path% | grep -P "uses-permission:" | grep -oP "name='[^']+'" | grep -oP "[^']{6,}"
+aapt dump permissions %apk_path% | grep -P "uses-permission:" | grep -oP "name='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^']{2,}"

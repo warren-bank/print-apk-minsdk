@@ -5,7 +5,7 @@ PATH="${DIR}/../tools:${PATH}"
 
 if [ -z "$1" ]; then
   echo 'error: path to APK file is a required parameter'
-  echo 'usage: print-apk-permissions "/path/to/file.apk"'
+  echo 'usage: print-apk-version "/path/to/file.apk"'
   exit 1
 fi
 
@@ -13,7 +13,7 @@ apk_path=$(realpath "$1")
 
 if [ ! -f "$apk_path" ]; then
   echo 'error: path to APK file does not exist'
-  echo 'usage: print-apk-permissions "/path/to/file.apk"'
+  echo 'usage: print-apk-version "/path/to/file.apk"'
   exit 1
 fi
 
@@ -30,8 +30,8 @@ case "$(uname -s)" in
 esac
 
 # =====================================================
-# https://android.stackexchange.com/a/9779
-# aapt dump permissions "$apk_path"
+# https://stackoverflow.com/a/6289168
+# aapt dump badging "$apk_path"
 # =====================================================
 
-"$aapt" dump permissions "$apk_path" | grep -P "uses-permission:" | grep -oP "name='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^']{2,}"
+"$aapt" dump badging "$apk_path" | grep "package:" | grep -oP "versionName='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^']{2,}"
