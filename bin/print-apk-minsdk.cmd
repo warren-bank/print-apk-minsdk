@@ -48,4 +48,4 @@ rem ::     - sdkVersion:'15'
 rem ::     - targetSdkVersion:'18'
 rem :: =====================================================
 
-aapt dump badging %apk_path% | grep sdkVersion | grep -oP "\d+"
+aapt dump badging %apk_path% | grep "sdkVersion" | grep -oP "\d+"

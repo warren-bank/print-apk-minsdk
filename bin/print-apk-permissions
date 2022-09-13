@@ -34,4 +34,4 @@ esac
 # aapt dump permissions "$apk_path"
 # =====================================================
 
-"$aapt" dump permissions "$apk_path" | grep -P "uses-permission:" | grep -oP "name='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^']{2,}"
+"$aapt" dump permissions "$apk_path" | grep -P "uses-permission:" | grep -oP " name='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^'\\r\\n]+"

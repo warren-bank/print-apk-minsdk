@@ -61,4 +61,4 @@ esac
 #     - targetSdkVersion:'18'
 # =====================================================
 
-"$aapt" dump badging "$apk_path" | grep sdkVersion | grep -oP '\d+'
+"$aapt" dump badging "$apk_path" | grep 'sdkVersion' | grep -oP '\d+'

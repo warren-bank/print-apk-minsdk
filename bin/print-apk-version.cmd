@@ -21,4 +21,4 @@ rem :: https://stackoverflow.com/a/6289168
 rem :: aapt dump badging %apk_path%
 rem :: =====================================================
 
-aapt dump badging %apk_path% | grep "package:" | grep -oP "versionName='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^']{2,}"
+aapt dump badging %apk_path% | grep "package:" | grep -oP " versionName='[^']+'" | grep -oP "'[^']+'" | grep -oP "[^'\r\n]+"
